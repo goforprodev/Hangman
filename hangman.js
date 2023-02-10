@@ -6,6 +6,7 @@ let restartBtn = document.querySelector(".main_btn");
 let nextBtn = document.querySelector(".next_btn");
 let livesUI = document.querySelector(".lives");
 let revealWrd = document.querySelector(".reveal_word");
+let scoreUI = document.querySelector(".score");
 
 //----------- variables
 let words = [
@@ -49,6 +50,7 @@ let alphabets = [
 let trials = 5;
 let randomWord = genRandomWord();
 let userInput;
+let score = 0;
 
 //---------- Event listeners
 restartBtn.addEventListener("click", () => {
@@ -75,10 +77,15 @@ function updateHangman(index, userInput) {
   words_container.children[index].textContent = userInput;
 }
 
+function updateScore() {
+  score += 1;
+  scoreUI.innerHTML = score;
+}
+
 function fillLives() {
   //initialize lives
   for (let i = 0; i < trials; i++) {
-    let lives = "<span>💖</span>";
+    let lives = "<span>❤️</span>";
     if (livesUI.childElementCount != 5) {
       livesUI.innerHTML += lives;
     }
@@ -86,6 +93,7 @@ function fillLives() {
 }
 
 function initializeHangman() {
+  scoreUI.innerHTML = score;
   restartBtn.style.display = "none";
   nextBtn.style.display = "none";
   // set alphabet button
@@ -111,6 +119,7 @@ function reset() {
   // }
   livesUI.innerHTML = "";
   trials = 5;
+  score = 0;
   next();
   fillLives();
 }
@@ -150,6 +159,7 @@ function handleHangman(userInput) {
       updateHangman(i, userInput);
       correct = true;
       handleMessage(`You guessed ${userInput} right`);
+      updateScore();
     }
   }
   if (!correct) {
