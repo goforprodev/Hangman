@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hangman game</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li class="">
+          <a href="">Login</a>
+          <div id="login-content">
+            <form>
+              <fieldset>
+                <input
+                  id="login_username"
+                  type="email"
+                  name="Email"
+                  placeholder="Your email address"
+                  required
+                />
+                <input
+                  id="login_password"
+                  type="password"
+                  name="Password"
+                  placeholder="Password"
+                  required
+                />
+              </fieldset>
+              <fieldset>
+                <input type="submit" id="submit" value="Log in" />
+              </fieldset>
+            </form>
+          </div>
+        </li>
+        <li class="nav_el">
+          <a href="">Signup</a>
+          <div id="signup-content">
+            <form id="signin_form">
+              <fieldset>
+                <input
+                  id="signin_email"
+                  type="email"
+                  name="Email"
+                  placeholder="Your email address"
+                  required
+                />
+                <input
+                  id="signin_password"
+                  type="password"
+                  name="Password"
+                  placeholder="Password"
+                  required
+                />
+              </fieldset>
+              <fieldset>
+                <input type="submit" id="signin_submit" value="Sign in" />
+              </fieldset>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <main>
+      <h1>Hangman</h1>
+      <div class="lives"></div>
+      <div class="score"></div>
+      <div class="message_box"></div>
+      <div class="words"></div>
+      <div class="alpha_container"></div>
+      <div class="btn_container">
+        <button class="btn main_btn">Restart</button>
+        <button class="btn next_btn">Next</button>
+        <!-- <button class="main_btn">Continue</button> -->
+      </div>
+      <div class="reveal_word"></div>
+    </main>
+    <script src="js/hangman.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
